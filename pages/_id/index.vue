@@ -13,6 +13,13 @@
     async asyncData ({params}) {
       const {data} = await axios.get('https://jsonplaceholder.typicode.com/posts/'+params.id)
       return {articles:data}
-    }
+    },
+
+    // add article title to title tag in head
+    head() {
+      return{
+        title: this.articles.title
+      }
+    },
   }
 </script>
